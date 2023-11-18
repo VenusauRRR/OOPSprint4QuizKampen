@@ -1,2 +1,4 @@
-package Diagram;public class hi {
+package Diagram;
+
+public class hi {
 }
