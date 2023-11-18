@@ -1,3 +1,5 @@
+package QuizKampen.POJOs;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -10,7 +12,7 @@ public class GamePlayer extends Thread{
 
     PrintWriter fromServer;
 
-    GamePlayer(Socket serverSocket, String player){
+    public GamePlayer(Socket serverSocket, String player){
         this. playerSock = serverSocket;
         try {
             this.toServer = new BufferedReader(new InputStreamReader(this.playerSock.getInputStream()));
@@ -25,8 +27,8 @@ public class GamePlayer extends Thread{
         this.opponent = opponent;
     }
 
-    public void play(){
-        fromServer.println("hello");
+    public void run(){
+        fromServer.println("hello from server");
     }
 
 

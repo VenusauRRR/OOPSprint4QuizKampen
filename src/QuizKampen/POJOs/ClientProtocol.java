@@ -1,3 +1,5 @@
+package QuizKampen.POJOs;
+
 public class ClientProtocol {
     static final int STARTNEWGAME = 0;
     static final int RANDOMPLAYER = 1;
@@ -5,7 +7,7 @@ public class ClientProtocol {
 
     int gameState = STARTNEWGAME;
 
-//    ClientProtocol(){
+//    QuizKampen.POJOs.ClientProtocol(){
 //    }
 
     public void setGameState(int gameState) {

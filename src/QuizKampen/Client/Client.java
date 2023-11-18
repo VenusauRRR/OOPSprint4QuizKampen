@@ -1,3 +1,7 @@
+package QuizKampen.Client;
+
+import QuizKampen.POJOs.ClientProtocol;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -68,8 +72,6 @@ public class Client extends JFrame {
         }
         });
         connection.start();
-
-
 
     }
 

@@ -1,3 +1,5 @@
+package QuizKampen.POJOs;
+
 public enum GameState {
     STARTNEWGAME ("StartNewGame"),
     RANDOMPLAYER ("RandomPlayer"),
