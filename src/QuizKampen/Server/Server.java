@@ -15,8 +15,8 @@ public class Server {
             while (true){
 
             GamePlayer player1 = new GamePlayer(serverListener.accept(),"One");
-            player1.start();
             GamePlayer player2 = new GamePlayer(serverListener.accept(),"Two");
+            player1.start();
             player2.start();
             }
         } catch (IOException e) {

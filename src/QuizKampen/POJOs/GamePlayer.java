@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class GamePlayer extends Thread{
     String player;
-    String opponent;
+    GamePlayer opponent;
     Socket playerSock;
 
     BufferedReader toServer;
@@ -23,12 +23,12 @@ public class GamePlayer extends Thread{
         this.player = player;
     }
 
-    public void setOpponent(String opponent){
+    public void setOpponent(GamePlayer opponent){
         this.opponent = opponent;
     }
 
     public void run(){
-        fromServer.println("hello from server");
+            fromServer.println("hello from server");
     }
 
 
