@@ -20,7 +20,7 @@ public class GamePlayer extends Thread{
             in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             out = new PrintWriter(new OutputStreamWriter(sock.getOutputStream()),true);
             outObj = new ObjectOutputStream(sock.getOutputStream());
-            out.println("hellow from server");
+//            out.println("hellow from server");
             outObj.writeObject(new Response());
             } catch (IOException e) {
             throw new RuntimeException(e);
