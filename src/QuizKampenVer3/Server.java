@@ -1,4 +1,4 @@
-package QuizKampenVer2;
+package QuizKampenVer3;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -11,12 +11,11 @@ public class Server {
         try (ServerSocket serverListener = new ServerSocket(port);
         ) {
             while (true){
-                GampPlayerCoordinator game = new GampPlayerCoordinator();
 
-            GamePlayer player1 = new GamePlayer(serverListener.accept(), game);
-//            GamePlayer player2 = new GamePlayer(serverListener.accept(), game);
-            player1.start();
-//            player2.start();
+                ServerSideGame game = new ServerSideGame();
+
+                GamePlayer player1 = new GamePlayer(serverListener.accept());
+                player1.start();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

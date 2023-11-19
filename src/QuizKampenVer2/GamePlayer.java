@@ -4,19 +4,25 @@ import java.io.*;
 import java.net.Socket;
 
 public class GamePlayer extends Thread{
+    GampPlayerCoordinator game;
     String player;
     GamePlayer opponent;
-    Socket playerSock;
+    Socket sock;
 
     BufferedReader toServer;
 
     PrintWriter fromServer;
 
-    public GamePlayer(Socket serverSocket, String player){
-        this. playerSock = serverSocket;
+    public GamePlayer(String player){
+        this.player = player;
+    }
+
+    public GamePlayer(Socket serverSocket, GampPlayerCoordinator game){
+        this.game = game;
+        this. sock = serverSocket;
         try {
-            this.toServer = new BufferedReader(new InputStreamReader(this.playerSock.getInputStream()));
-            this.fromServer = new PrintWriter(new OutputStreamWriter(this.playerSock.getOutputStream()),true);
+            this.toServer = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));
+            this.fromServer = new PrintWriter(new OutputStreamWriter(this.sock.getOutputStream()),true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -25,6 +31,10 @@ public class GamePlayer extends Thread{
 
     public void setOpponent(GamePlayer opponent){
         this.opponent = opponent;
+    }
+
+    public String getPlayer() {
+        return player;
     }
 
     public void run(){
