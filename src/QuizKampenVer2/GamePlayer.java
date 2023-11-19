@@ -1,4 +1,4 @@
-package QuizKampen.POJOs;
+package QuizKampenVer2;
 
 import java.io.*;
 import java.net.Socket;
@@ -28,27 +28,27 @@ public class GamePlayer extends Thread{
     }
 
     public void run(){
-        Thread sendMsgToOpponent = new Thread(() -> {
-
-        while (true){
-            this.opponent.fromServer.println(msgToServer());
-        }
-        });
+//        Thread sendMsgToOpponent = new Thread(() -> {
+//
+//        while (true){
+//            this.opponent.fromServer.println(msgToServer());
+//        }
+//        });
     }
-
-    public String msgToServer(){
-        String temp;
-        while (true){
-            try {
-                if ((temp = toServer.readLine()) != null){
-                    System.out.println(temp);
-                    return temp;
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+//
+//    public String msgToServer(){
+//        String temp;
+//        while (true){
+//            try {
+//                if ((temp = toServer.readLine()) != null){
+//                    System.out.println(temp);
+//                    return temp;
+//                }
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    }
 
 
 

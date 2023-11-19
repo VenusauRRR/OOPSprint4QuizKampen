@@ -47,15 +47,18 @@ public class Client extends JFrame {
 
         JPanel newP = new JPanel(new BorderLayout());
         JTextArea tArea = new JTextArea(30,30);
+        JTextField tField = new JTextField(30);
         setContentPane(newP);
         setTitle("Question Page");
         JButton contBtn = new JButton("Continue");
         newP.add(contBtn,BorderLayout.NORTH);
-        newP.add(tArea);
+        newP.add(tArea,BorderLayout.CENTER);
+        newP.add(tField,BorderLayout.SOUTH);
         contBtn.addActionListener(e -> {
         });
 
         setVisible(true);
+        Thread recMsg = new Thread();
 
         Thread connection = new Thread(() -> {
 
@@ -63,8 +66,11 @@ public class Client extends JFrame {
              BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
              PrintWriter out = new PrintWriter(new OutputStreamWriter(client.getOutputStream()),true)) {
             while ((msgFromServer = in.readLine()) != null){
+                out.println(tField.getText());
+            tField.setText("");
             tArea.setText(msgFromServer);
             }
+
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
